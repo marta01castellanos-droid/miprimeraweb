@@ -1,3 +1,98 @@
+/* Modal visor de imagen para el diagrama */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background: rgba(0,0,0,0.7);
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  margin: 40px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 90vw;
+  max-height: 80vh;
+  background: transparent;
+}
+.modal img {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 10px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  cursor: grab;
+  background: #fff;
+}
+.close {
+  position: absolute;
+  top: 24px;
+  right: 38px;
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1100;
+  text-shadow: 0 2px 8px #000a;
+}
+.diagram-thumb {
+  transition: box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(16,40,20,0.08);
+}
+.diagram-thumb:hover {
+  box-shadow: 0 6px 24px rgba(16,40,20,0.18);
+  filter: brightness(1.04);
+}
+/* Estilos para el acordeón del mapa conceptual */
+.mindmap-accordion {
+  margin: 18px 0 0 0;
+  width: 100%;
+  max-width: 480px;
+}
+.accordion {
+  background: var(--accent);
+  color: #234;
+  cursor: pointer;
+  padding: 14px 18px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  font-size: 1.08rem;
+  font-family: 'Poppins', 'Titan One', sans-serif;
+  border-radius: 10px;
+  margin-bottom: 6px;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(16,40,20,0.04);
+}
+.accordion.active, .accordion:hover {
+  background: var(--accent-strong);
+  color: #fff;
+}
+.panel {
+  background: #fff;
+  border-radius: 0 0 10px 10px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  box-shadow: 0 2px 8px rgba(16,40,20,0.04);
+  margin-bottom: 10px;
+}
+.panel ul {
+  margin: 0;
+  padding: 12px 22px;
+  list-style: disc inside;
+  color: #234;
+}
+.panel li {
+  margin-bottom: 6px;
+  font-size: 1rem;
+}
 /* Cajas individuales para recursos */
 .resource-box {
   background: var(--card);

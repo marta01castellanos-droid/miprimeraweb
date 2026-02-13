@@ -33,9 +33,17 @@
                 <p class="note">Si el audio no se reproduce automáticamente, pulsa "Reproducir".</p>
             </div>
             <div class="resource-box">
-                <h3>Imagen 1: Mapa conceptual</h3>
-                <p>Visualiza un esquema que resume los principales conceptos de la ontología de la imagen y el simulacro, facilitando la comprensión de las relaciones entre ellos.</p>
-                <img src="assets/NotebookLM%20Mind%20Map%20(1).png" alt="Mapa conceptual" />
+                                <h3>Imagen 1: Mapa conceptual</h3>
+                                <p>Visualiza el diagrama interactivo: haz clic en la imagen para abrir el visor, hacer zoom y moverte por el mapa conceptual de la ontología de la imagen y el simulacro.</p>
+                                <img src="assets/NotebookLM%20Mind%20Map%20(1).png" alt="Mapa conceptual" class="diagram-thumb" id="openDiagramViewer" style="cursor: zoom-in;" />
+
+                                <!-- Modal visor de imagen -->
+                                <div id="diagramModal" class="modal">
+                                    <span class="close" id="closeDiagramModal">&times;</span>
+                                    <div class="modal-content">
+                                        <img src="assets/NotebookLM%20Mind%20Map%20(1).png" alt="Mapa conceptual" id="diagramZoom" />
+                                    </div>
+                                </div>
             </div>
             <div class="resource-box">
                 <h3>Imagen 2: Ilustración generada con IA</h3>
@@ -55,17 +63,63 @@
     </main>
 
     <script>
-        const player = document.getElementById('player');
-        const playBtn = document.getElementById('playBtn');
-        playBtn.addEventListener('click', () => {
-            if (player.paused) {
-                player.play().catch(() => {});
-                playBtn.textContent = 'Pausar';
-            } else {
-                player.pause();
-                playBtn.textContent = 'Reproducir';
-            }
-        });
+                const player = document.getElementById('player');
+                const playBtn = document.getElementById('playBtn');
+                playBtn.addEventListener('click', () => {
+                        if (player.paused) {
+                                player.play().catch(() => {});
+                                playBtn.textContent = 'Pausar';
+                        } else {
+                                player.pause();
+                                playBtn.textContent = 'Reproducir';
+                        }
+                });
+
+                // Visor interactivo para el diagrama
+                const openBtn = document.getElementById('openDiagramViewer');
+                const modal = document.getElementById('diagramModal');
+                const closeBtn = document.getElementById('closeDiagramModal');
+                const zoomImg = document.getElementById('diagramZoom');
+                let scale = 1, originX = 0, originY = 0, startX, startY, isPanning = false;
+
+                openBtn.addEventListener('click', () => {
+                    modal.style.display = 'block';
+                    scale = 1;
+                    originX = 0;
+                    originY = 0;
+                    zoomImg.style.transform = 'translate(0px,0px) scale(1)';
+                });
+                closeBtn.addEventListener('click', () => {
+                    modal.style.display = 'none';
+                });
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) modal.style.display = 'none';
+                });
+
+                // Zoom con rueda del ratón
+                zoomImg.addEventListener('wheel', (e) => {
+                    e.preventDefault();
+                    const delta = e.deltaY > 0 ? -0.1 : 0.1;
+                    scale = Math.min(Math.max(0.5, scale + delta), 3);
+                    zoomImg.style.transform = `translate(${originX}px,${originY}px) scale(${scale})`;
+                });
+                // Arrastrar para moverse
+                zoomImg.addEventListener('mousedown', (e) => {
+                    isPanning = true;
+                    startX = e.clientX - originX;
+                    startY = e.clientY - originY;
+                    zoomImg.style.cursor = 'grabbing';
+                });
+                document.addEventListener('mousemove', (e) => {
+                    if (!isPanning) return;
+                    originX = e.clientX - startX;
+                    originY = e.clientY - startY;
+                    zoomImg.style.transform = `translate(${originX}px,${originY}px) scale(${scale})`;
+                });
+                document.addEventListener('mouseup', () => {
+                    isPanning = false;
+                    zoomImg.style.cursor = 'grab';
+                });
     </script>
 </body>
 </html>
