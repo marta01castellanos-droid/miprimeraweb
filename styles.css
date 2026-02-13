@@ -1,3 +1,14 @@
+.resource-box .btn {
+  margin-top: 8px;
+  width: fit-content;
+}
+
+/* Centrar el botón de descarga PDF */
+.resource-box:last-child .btn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 /* Modal visor de imagen para el diagrama */
 .modal {
   display: none;
