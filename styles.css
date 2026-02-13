@@ -1,0 +1,107 @@
+:root{
+  --bg: #e9f7ef;
+  --accent: #bfe8c9;
+  --card: #ffffff;
+  --muted: #6b6b6b;
+  --accent-strong: #86c89a;
+  --radius: 14px;
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:linear-gradient(180deg,var(--bg),#f6fff6);
+  color:#123;
+  -webkit-font-smoothing:antialiased;
+}
+
+.page{
+  max-width:980px;
+  margin:32px auto;
+  padding:20px;
+}
+
+.hero{
+  text-align:center;
+  padding:28px 12px;
+}
+.title{
+  margin:0;
+  font-size:2.2rem;
+  color:var(--accent-strong);
+  letter-spacing:0.2px;
+}
+.subtitle{
+  margin:8px 0 0;
+  color:var(--muted);
+  font-weight:300;
+}
+
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:0 6px 18px rgba(16,40,20,0.06);
+  padding:18px;
+  margin:20px 0;
+}
+
+.intro h2, .gallery h2, .resources h2{margin-top:0}
+
+.audio-controls{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.btn{
+  background:var(--accent-strong);
+  color:white;
+  border:none;
+  padding:10px 14px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:600;
+}
+.btn:hover{filter:brightness(.98);transform:translateY(-1px)}
+
+.note{color:var(--muted);font-size:0.95rem}
+
+.images{
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+  justify-content:space-between;
+}
+.images figure{flex:1;margin:0}
+.images img{
+  width:100%;
+  height:auto;
+  border-radius:10px;
+  display:block;
+  object-fit:cover;
+}
+.images figcaption{font-size:0.9rem;color:var(--muted);margin-top:8px}
+
+.resources ul{margin:8px 0 0;padding-left:1.1rem}
+.resources a{color:var(--accent-strong);text-decoration:none}
+.resources a:hover{text-decoration:underline}
+
+.footer{font-size:0.9rem;color:var(--muted);text-align:center;padding:12px}
+
+/* Responsive */
+@media (max-width:760px){
+  .page{padding:12px;margin:18px}
+  .title{font-size:1.6rem}
+  .images{flex-direction:column}
+  .audio-controls{flex-direction:column;align-items:stretch}
+  .btn{width:100%}
+}
+
+@media (min-width:1200px){
+  .page{max-width:1100px}
+}
+
+/* Accessibility: focus ring */
+.btn:focus, a:focus {outline:3px solid rgba(134,200,154,0.28);outline-offset:3px}

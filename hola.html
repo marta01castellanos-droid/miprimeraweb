@@ -1,11 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Presentación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <main class="page">
+        <header class="hero">
+            <h1 class="title">Bienvenido</h1>
+            <p class="subtitle">Una presentación pensada para adolescentes — escucha, mira y explora.</p>
+        </header>
+
+        <section class="card intro">
+            <h2>Sobre este proyecto</h2>
+            <p>En esta página encontrarás un audio titulado "Vivimos en una copia sin original", dos imágenes y material adicional. Está diseñado con tonos verde pastel y tipografía amigable para adolescentes.</p>
+            <div class="audio-controls">
+                <audio id="player" controls preload="none">
+                    <source src="assets/Vivimos_en_una_copia_sin_original.m4a" type="audio/mp4">
+                    Tu navegador no soporta la reproducción de audio.
+                </audio>
+                <button id="playBtn" class="btn">Reproducir</button>
+            </div>
+            <p class="note">Si el audio no se reproduce automáticamente, pulsa "Reproducir".</p>
+        </section>
+
+        <section class="card gallery">
+            <h2>Imágenes</h2>
+            <div class="images">
+                <figure>
+                    <img src="assets/NotebookLM%20Mind%20Map%20(1).png" alt="Mapa conceptual" />
+                    <figcaption>Mapa conceptual (visual)</figcaption>
+                </figure>
+                <figure>
+                    <img src="assets/unnamed.png" alt="Imagen secundaria" />
+                    <figcaption>Ilustración</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="card resources">
+            <h2>Recursos</h2>
+            <p>Puedes descargar el material adicional:</p>
+            <ul>
+                <li><a href="assets/The_Agony_of_the_Real.pdf" target="_blank" rel="noopener">The_Agony_of_the_Real.pdf</a></li>
+            </ul>
+        </section>
+
+        <footer class="footer">
+            <p>Creado para entorno educativo — revisa el contenido en la carpeta <strong>assets</strong>.</p>
+        </footer>
+    </main>
+
+    <script>
+        const player = document.getElementById('player');
+        const playBtn = document.getElementById('playBtn');
+        playBtn.addEventListener('click', () => {
+            if (player.paused) {
+                player.play().catch(() => {});
+                playBtn.textContent = 'Pausar';
+            } else {
+                player.pause();
+                playBtn.textContent = 'Reproducir';
+            }
+        });
+    </script>
 </body>
 </html>
