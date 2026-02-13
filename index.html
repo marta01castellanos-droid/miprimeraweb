@@ -18,38 +18,35 @@
         </header>
 
         <section class="card intro">
-            <h2>Sobre este proyecto</h2>
-            <p>En esta página encontrarás un audio titulado "Vivimos en una copia sin original", dos imágenes y material adicional. Está diseñado con tonos verde pastel y tipografía amigable para adolescentes.</p>
-            <div class="audio-controls">
-                <audio id="player" controls preload="none">
-                    <source src="assets/Vivimos_en_una_copia_sin_original.m4a" type="audio/mp4">
-                    Tu navegador no soporta la reproducción de audio.
-                </audio>
-                <button id="playBtn" class="btn">Reproducir</button>
+            <h2>Contenidos de esta página</h2>
+            <p>En esta página encontrarás diversos recursos multimedia para profundizar en la ontología de la imagen y del simulacro. Cada recurso está presentado en una caja individual para facilitar su exploración:</p>
+            <div class="resource-box">
+                <h3>Audio: "Vivimos en una copia sin original"</h3>
+                <p>Escucha un audio que introduce y reflexiona sobre la idea de que vivimos en una realidad mediada por copias y simulacros, abordando conceptos clave de la teoría contemporánea de la imagen.</p>
+                <div class="audio-controls">
+                    <audio id="player" controls preload="none">
+                        <source src="assets/Vivimos_en_una_copia_sin_original.m4a" type="audio/mp4">
+                        Tu navegador no soporta la reproducción de audio.
+                    </audio>
+                    <button id="playBtn" class="btn">Reproducir</button>
+                </div>
+                <p class="note">Si el audio no se reproduce automáticamente, pulsa "Reproducir".</p>
             </div>
-            <p class="note">Si el audio no se reproduce automáticamente, pulsa "Reproducir".</p>
-        </section>
-
-        <section class="card gallery">
-            <h2>Imágenes</h2>
-            <div class="images">
-                <figure>
-                    <img src="assets/NotebookLM%20Mind%20Map%20(1).png" alt="Mapa conceptual" />
-                    <figcaption>Mapa conceptual (visual)</figcaption>
-                </figure>
-                <figure>
-                    <img src="assets/unnamed.png" alt="Imagen secundaria" />
-                    <figcaption>Ilustración</figcaption>
-                </figure>
+            <div class="resource-box">
+                <h3>Imagen 1: Mapa conceptual</h3>
+                <p>Visualiza un esquema que resume los principales conceptos de la ontología de la imagen y el simulacro, facilitando la comprensión de las relaciones entre ellos.</p>
+                <img src="assets/NotebookLM%20Mind%20Map%20(1).png" alt="Mapa conceptual" />
             </div>
-        </section>
-
-        <section class="card resources">
-            <h2>Recursos</h2>
-            <p>Puedes descargar el material adicional:</p>
-            <ul>
-                <li><a href="assets/The_Agony_of_the_Real.pdf" target="_blank" rel="noopener">The_Agony_of_the_Real.pdf</a></li>
-            </ul>
+            <div class="resource-box">
+                <h3>Imagen 2: Ilustración generada con IA</h3>
+                <p>Observa una ilustración creada mediante inteligencia artificial, que representa de forma creativa la temática del simulacro y la copia en la cultura visual.</p>
+                <img src="assets/unnamed.png" alt="Imagen secundaria generada con IA" />
+            </div>
+            <div class="resource-box">
+                <h3>Presentación adicional (PDF)</h3>
+                <p>Descarga una presentación en PDF que amplía y profundiza en los conceptos tratados, ideal para repasar o compartir.</p>
+                <a class="btn" href="assets/The_Agony_of_the_Real.pdf" target="_blank" rel="noopener">Descargar PDF</a>
+            </div>
         </section>
 
         <footer class="footer">
